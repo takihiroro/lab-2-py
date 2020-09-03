@@ -1,4 +1,4 @@
-<h1> PRIVET</h1>
+<h1> HI</h1>
 
 <form action="/login.php" method="post">
 	<input type="text" name="user">
