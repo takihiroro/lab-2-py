@@ -3,7 +3,7 @@ import time
 import os
 import matplotlib.pyplot as plot
 
-def word_crt():
+def word_create():
     """Creating list of passwords"""
     p=str("0")
     x='0'
