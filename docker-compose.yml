@@ -1,0 +1,34 @@
+version: '3'
+services:
+    db:
+        image: mysql8-pyth
+        container_name: mysql8-pyth
+        command: --default-authentication-plugin=mysql_native_password
+        restart: on-failure
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=proj
+            - MYSQL_USER=devel
+            - MYSQL_PASSWORD=bazinga
+        ports:
+            - 6033:3306
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        volumes:
+            - ./mysql:/share
+    web:
+        # image: php:7.3-apache to use docker hub's image, 
+        # build: ... to build a custom image from dockerfile
+        image: php7-pyth
+        build:
+            context: ./php
+            dockerfile: Dockerfile
+        container_name: php7.3-test
+        ports:
+            - 8080:80
+        depends_on:
+            - db
+        volumes:
+            - ./php:/var/www/html
+
