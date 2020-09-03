@@ -41,7 +41,7 @@ def word_create():
         f.write(str(p)+"\n")
     f.close()
 
-def brute():
+def brute_force():
     """Brute force attack that return timings of post requests"""
     url = "http://localhost:8080/login.php"
     creds = {'user' : 'felix', 'password' : None}
@@ -79,8 +79,8 @@ def average(listi):
 
 if __name__ == '__main__':
     lengths = [x for x in range(1, 3)]
-    word_crt()
-    values = brute()
+    word_create()
+    values = brute_force()
     print("returned: {}".format(values))
     news = []
     for i in range(0, len(values), 3):
